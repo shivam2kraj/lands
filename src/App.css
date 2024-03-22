@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
-}
+/* LandsPage.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Common styles */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  max-width: 1200px; /* Limit container width */
+}
+
+.lands-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.land-card {
+  border: 2px solid #db1818;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.land-card:hover {
+  transform: translateY(-5px);
+}
+
+.land-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.loader-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100px; /* Adjust height as needed */
 }
 
-.App-link {
-  color: #61dafb;
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+
+.image-container {
+  position: relative;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .lands-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .lands-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .lands-list {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
